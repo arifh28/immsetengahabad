@@ -18,12 +18,6 @@
     });
 </script>
 
-<script>
-    $(document).ready(function(){
-        $('#myScrollspy').scrollspy({target: ".navbar"});
-    });
-</script>
-
 </body>
 
 </html>
