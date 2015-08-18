@@ -12,7 +12,8 @@ class Register extends CI_Controller {
             'title'			=> "Registrasi | IMM Setengah Abad",
             'description'	=> "Registrasi | IMM Setengah Abad",
         );
-		$this->load->view('web/v_register', $data);
+        $this->load->view('web/head', $data);
+		$this->load->view('web/v_register');
         $this->load->view('web/footer');
     }
 	
@@ -23,6 +24,10 @@ class Register extends CI_Controller {
 		$password = $this->input->post('password');
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
+        $wan_wati = $this->input->post('wan_wati');
+        $cabang = $this->input->post('cabang');
+        $dpd = $this->input->post('dpd');
+        $komisariat = $this->input->post('komisariat');
 		
 		//memasukan ke array
 		$data = array(
@@ -30,6 +35,10 @@ class Register extends CI_Controller {
 			'password' => $password,
 			'nama' => $nama,
 			'email' => $email,
+            'wan_wati' => $wan_wati,
+            'komisariat' => $komisariat,
+            'cabang' => $cabang,
+            'dpd' => $dpd,
 			'active' => 0
 		);
 		//tambahkan akun ke database
@@ -45,18 +54,18 @@ class Register extends CI_Controller {
 		$config['useragent'] = 'Codeigniter';
 		$config['protocol']= "smtp";
 		$config['mailtype']= "html";
-		$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+		$config['smtp_host']= "ssl://cloud507.unlimitedwebhosting.co.uk";//pengaturan smtp
 		$config['smtp_port']= "465";
-		$config['smtp_timeout']= "400";
-		$config['smtp_user']= "arif.hidayat28@gmail.com"; // isi dengan email kamu
-		$config['smtp_pass']= "Syahida123"; // isi dengan password kamu
+		$config['smtp_timeout']= "4000";
+		$config['smtp_user']= "register@immsetengahabad.tk"; // isi dengan email kamu
+		$config['smtp_pass']= "immsetengahabad"; // isi dengan password kamu
 		$config['crlf']="\r\n"; 
 		$config['newline']="\r\n"; 
 		$config['wordwrap'] = TRUE;
 		//memanggil library email dan set konfigurasi untuk pengiriman email
 
 
-        $this->load->view('web/v_register2', $data);
+        $this->load->view('web/head', $data);
         $this->load->view('web/footer');
 		$this->email->initialize($config);
 		//konfigurasi pengiriman
@@ -74,13 +83,13 @@ class Register extends CI_Controller {
 
 		if($this->email->send())
 		{
-			echo "<br><br><br><br><p>Alhamdulillah, berhasil melakukan registrasi, silahkan cek email Immawan/Immawati.</p>";
+			echo "<div class='register'><br><br><br><br><p>Alhamdulillah, berhasil melakukan registrasi, silahkan cek email Immawan/Immawati.</p></div>";
 		}else
 		{
-			echo "<br><br><br><br><p>Berhasil melakukan registrasi, namun gagal mengirim verifikasi email. Silahkan cek alamat emailnya.</p>";
+			echo "<div class='register'><br><br><br><br><p>Berhasil melakukan registrasi, namun gagal mengirim verifikasi email. Silahkan cek alamat emailnya.</p></div>";
 		}
-		
-		echo "<br><br><br>Kembali ke <a href='".site_url("login")."'>Beranda</a> untuk Log In.<br><br><br><br><br><br>";
+
+		echo "<br><br><br><br><br><br><br><br><br>";
 	}
 	
 	public function verification($key)
@@ -91,11 +100,12 @@ class Register extends CI_Controller {
         );
         $this->load->helper('url');
 		$this->load->model('m_register');
-        $this->load->view('web/v_register2', $data);
+        $this->load->view('web/head', $data);
+
         $this->load->view('web/footer');
 		$this->m_register->changeActiveState($key);
-		echo "<br><br><br><p>Selamat Immawan/Immawati. Akun sudah aktif.</p>";
-		echo "<br><br>Kembali ke <a href='".site_url("login")."'>Beranda</a> untuk Log In.<br><br><br><br><br><br>";
+		echo "<div class='register'> <br><br><br><h4>Selamat Immawan/Immawati. Akun sudah aktif.</h4> </div>";
+		echo "<div class='register'><br><br>Kembali ke <a href='".site_url("login")."'>Beranda</a> untuk Log In.<br><br><br><br><br><br></div>";
 	}
 }
 

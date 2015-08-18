@@ -39,6 +39,25 @@
 */
 
 $route['default_controller']            = "login";
+
+$route['content/(:any)/(:any)']			= 'login/viewcontent/$1/$2';
+$route['pages/news']			        = 'login/news';
+$route['pages/news/(:any)']			    = 'login/news';
+
+$route['perkaderan/(:any)/(:any)']		= 'home/viewperkaderan/$1/$2';
+$route['pages/perkaderan']			    = 'home/perkaderan';
+$route['pages/perkaderan/(:any)']	    = 'home/perkaderan';
+
+$route['tanfidz/anggaran-dasar']	    = 'home/tanfidzangda';
+$route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
+$route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
+$route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
+
+
+$route['search']						= 'login/cari';
+$route['lost']						    = 'login/data_kosong';
+$route['tentang']						= 'login/tentang';
+
 $route['panel'] 						= 'C_panel';
 $route['panel/auth'] 					= 'C_panel/auth';
 $route['panel/logout'] 					= 'C_panel/logout';
