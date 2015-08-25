@@ -87,13 +87,13 @@
 
                 <li><a href="<?php echo base_url();?>">HOME</a>
                 </li>
-                <li class="active"><a href="#deklarasi">ARTIKEL</a>
+                <li class="active"><a href="<?php echo base_url();?>pages/news">ARTIKEL</a>
                 </li>
-                <li><a href="#tentang">TENTANG</a>
+                <li><a href="<?php echo base_url();?>tentang">TENTANG</a>
                 </li>
-                <li><a href="#imm">IMM</a>
+                <li><a href="<?php echo base_url();?>pages/perkaderan">INFO PERKADERAN</a>
                 </li>
-                <li><a href="#tanfidz">TANFIDZ</a>
+                <li><a href="<?php echo base_url();?>tanfidz">TANFIDZ</a>
                 </li>
             </ul>
             <!-- /.navbar-collapse -->

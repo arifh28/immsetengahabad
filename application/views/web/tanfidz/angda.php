@@ -27,7 +27,7 @@
 
         <!-- Logo -->
         <div id="logo">
-            <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+            <a href="<?php echo base_url();?>tanfidz"><span class="image avatar48"><img src="<?php echo base_url();?>assets/web/images/ic_launcher.png" alt="" /></span></a>
             <h1 id="title">Anggaran Dasar</h1>
             <p>Tanfidz Muktamar XVI IMM</p>
         </div>
@@ -54,33 +54,19 @@
                 <li><a href="#bab7" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-square">Bab VII, VIII, IX</span></a></li>
                 <li><a href="#bab10" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-square">Bab X, XI, XII</span></a></li>
                 <li><a href="#bab10" id="top-link" class="skel-layers-ignoreHref"><hr></a></li>
-                <li><a href="#" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Anggaran Rumah Tangga <i class="fa fa-chevron-circle-right"></i> </span></a></li>
-                <li><a href="#" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">GBHO Muktamar XVI <i class="fa fa-chevron-circle-right"></i></span></a></li>
-                <li><a href="#" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Mekanisme Kerja Pimpinan <i class="fa fa-chevron-circle-right"></i></span></a></li>
-                <li><a href="#" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Tatib Pemilihan <i class="fa fa-chevron-circle-right"></i></span></a></li>
+                <li><a href="<?php echo base_url();?>tanfidz/anggaran-rumah-tangga" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Anggaran Rumah Tangga <i class="fa fa-chevron-circle-right"></i> </span></a></li>
+                <li><a href="<?php echo base_url();?>tanfidz/gbho" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">GBHO Muktamar XVI <i class="fa fa-chevron-circle-right"></i></span></a></li>
+                <li><a href="<?php echo base_url();?>tanfidz/mekanisme-kerja-pimpinan" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Mekanisme Kerja Pimpinan <i class="fa fa-chevron-circle-right"></i></span></a></li>
+                <li><a href="<?php echo base_url();?>tanfidz/tatib-pemilihan-pimpinan" id="top-link" class="skel-layers-ignoreHref"><span style="color: #fff;" class="icon">Tatib Pemilihan Pimpinan <i class="fa fa-chevron-circle-right"></i></span></a></li>
             </ul>
         </nav>
 
     </div>
-
-    <div class="bottom">
-
-        <!-- Social Icons -->
-        <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-        </ul>
-
-    </div>
-
 </div>
 
 <!-- Main -->
 <div id="main">
-
+<img src="<?php echo base_url();?>assets/web/images/pusat_download.png" alt="" />
     <!-- Intro -->
     <section id="top" class="one dark cover">
         <div class="container">
@@ -393,8 +379,8 @@
                 Muktamar XVI di Surakarta, Jawa Tengah dan mulai berlaku sejak disahkannya
                 oleh Pimpinan Pusat Muhammadiyah.</p>
 
-            <p><i>Ditetapkan di : Solo - Jawa Tengah</i></p>
-            <p><i>Tanggal : 30 Mei 2014</i></p>
+            <p style="text-align: left"><i>Ditetapkan di : Solo - Jawa Tengah</i></p>
+            <p style="text-align: left"><i>Tanggal : 30 Mei 2014</i></p>
 
             </header>
 
@@ -408,7 +394,9 @@
 
     <!-- Copyright -->
     <ul class="copyright">
-        <li>IMM Setengah Abad</li>
+        <li><a title="KEMBALI KE BERANDA" href="<?php echo base_url();?>"> <i style="color: #C60000" class="fa fa-home"></i> IMM Setengah Abad  </a></li>
+        <li><a title="LINK VIA DROPBOX.COM" href="https://goo.gl/vySvE7" target="_blank"> <i style="color: #094AB2" class="fa fa-windows"></i> Download untuk Windows </a></li>
+        <li><a title="DOWNLOAD APK" href="" target="_blank"> <i style="color: #A4C639" class="fa fa-android"></i> Download untuk Android </a></li>
     </ul>
 
 </div>

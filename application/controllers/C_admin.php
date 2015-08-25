@@ -1044,10 +1044,10 @@ class C_admin extends CI_Controller {
 	function repMessage(){
 
 		$config['protocol'] = 'smtp';		
-		$config['smtp_host'] = 'smtp.gmail.com';	
+		$config['smtp_host'] = 'cloud507.unlimitedwebhosting.co.uk';
 		$config['smtp_port'] = 465;		
-		$config['smtp_user'] = 'akun.tester232@gmail.com';		
-		$config['smtp_pass'] = 'akuntester232';			
+		$config['smtp_user'] = 'info@immsetengahabad.tk';
+		$config['smtp_pass'] = 'muhammadiyah';
 		$this->load->library('email', $config);		
 		$this->email->set_newline("\r\n");				
 		$user_data 		= $this->m_admin->user()->result_array();		

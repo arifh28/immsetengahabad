@@ -171,14 +171,21 @@
 </header>
 
 <section id="tanfidz">
+    <div class="col-md-12">
+        <h1>Tanfidz Muktamar XVI IMM</h1>
+        <hr>
+    </div>
     <div class="container">
-        <div class="col-md-6">
-            <div class="list scrollpoint sp-effect2"><p>Coba dulu</p></div>
-        </div>
-        <div class="col-md-6">
-            <div class="list scrollpoint sp-effect1"><p>Coba dulu</p></div>
+        <div class="col-md-12 scrollpoint sp-effect3">
+            <img src="<?php echo base_url();?>assets/web/images/tanfidzwindows.png"
         </div>
     </div>
+    <div class="container scrollpoint sp-effect3">
+        <div class="col-md-12">
+            <h4>Download sekarang juga! <a class="windowsapp" title="Ukuran 4.1 MB" href="<?php echo base_url();?>tanfidz"><i class="fa fa-windows fa-2x"> </i></a> <a class="androidapp" href="<?php echo base_url();?>tanfidz"> <i class="fa fa-android fa-2x"></i></a></h4>
+        </div>
+    </div>
+
 </section>
 
 <section id="news">
@@ -307,7 +314,24 @@
 <footer id="site-footer">
     <div class="container">
         <div class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>tentang">Tentang Kami</li>
+                    <li><a href="<?php echo base_url();?>tanfidz">Tanfidz Muktamar XVI IMM</li>
 
+                    <li><a href="<?php echo base_url();?>pusatunduhimm">Pusat Unduh IMM</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>pages/perkaderan">Perkaderan Nasional dan Regional</li>
+
+                    <li><a href="<?php echo base_url();?>kontak">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+            </div>
         </div>
     </div>
 </footer>

@@ -456,9 +456,9 @@ class Login extends CI_Controller {
             'teks_kontak'	=> $teks_kontak[0]['content'],
             'menu_foot'		=> $menu_foot,
         );
-        $this->load->view('home/head', $data);
-        $this->load->view('home/contact');
-        $this->load->view('home/footer');
+        $this->load->view('web/head', $data);
+        $this->load->view('web/contact');
+        $this->load->view('web/footer');
     }
 
     function aksikontak(){
@@ -517,9 +517,9 @@ class Login extends CI_Controller {
                 'menu_foot'		=> $menu_foot,
             );
 
-            $this->load->view('home/head', $data);
-            $this->load->view('home/contact');
-            $this->load->view('home/footer');
+            $this->load->view('web/head', $data);
+            $this->load->view('web/contact');
+            $this->load->view('web/footer');
 
         }
         else {
@@ -635,9 +635,7 @@ class Login extends CI_Controller {
 
     }
 
-
-
-    function daftar_komunitasadd(){
+    function kirim_tulisan(){
 
         date_default_timezone_set('Asia/Jakarta');
         $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
@@ -656,15 +654,14 @@ class Login extends CI_Controller {
 
 
         $data	= 	array(
-            'description'	    => 'Daftar Komunitas',
-            'keyword'		    => 'Daftar Komunitas',
-            'title'			    => 'Daftar Komunitas',
+            'description'	    => 'Kirim Tulisan | IMM Setengah Abad',
+            'keyword'		    => 'Kirim Tulisan | IMM Setengah Abad',
+            'title'			    => 'Kirim Tulisan | IMM Setengah Abad',
             'status'		    => 'baru',
             'kode'			    => '',
             'nama'	            => '',
             'alamat'		    => '',
             'no_hape'		    => '',
-            'alamat_komunitas'	=> '',
             'logo'			    => strip_tags($logoheader[0]['content']),
             'footer'		    => $footer[0]['content'],
             'menu'			    => $this->m_site->GetParentMenu(),
@@ -675,31 +672,28 @@ class Login extends CI_Controller {
         );
 
 
-        $this->load->view('home/head',$data);
-        $this->load->view('home/daftar_komunitas');
-        $this->load->view('home/footer');
+        $this->load->view('web/head',$data);
+        $this->load->view('web/kirim_tulisan');
+        $this->load->view('web/footer');
     }
 
-    function daftar_komunitassave(){
+    function kirim_tulisansave(){
         if($_POST){
 
             $kode			    = $this->input->post('kode');
             $nama	    	    = $this->input->post('nama');
             $no_hape 		    = $this->input->post('no_hape');
             $foto			    = $this->input->post('foto');
-            $status			    = $this->input->post('status');
-            $cv 			    = $this->input->post('cv');
+            $tulisan		    = $this->input->post('tulisan');
             $alamat 	        = $this->input->post('alamat');
-            $nama_komunitas	    = $this->input->post('nama_komunitas');
-            $alamat_komunitas   = $this->input->post('alamat_komunitas');
 
             if($status == 'baru'){
 
-                // Foto Karyawan
+                // File Foto
 
                 if($_FILES['foto']['name'] != ""){
-                    $config['upload_path'] = 'file/dosen';
-                    $config['allowed_types'] = 'jpg|png|jpeg';
+                    $config['upload_path'] = 'file/foto_tulisan';
+                    $config['allowed_types'] = 'jpg|png|jpeg|gif';
                     $config['max_size'] = '2000';
                     $config['remove_spaces'] = false;
                     $config['overwrite'] = true;
@@ -710,7 +704,7 @@ class Login extends CI_Controller {
                     $this->upload->initialize($config);
                     if (!$this->upload->do_upload('foto'))
                     {
-                        print_r('Ukuran File Terlalu Besar. Maksimal 2Mb');
+                        print_r('Ukuran File Terlalu Besar. Maksimal 2 Mb');
                         exit();
                     }
                     else
@@ -724,22 +718,22 @@ class Login extends CI_Controller {
                     }
                 }
 
-                // CV Karyawan
+                // Dokumen
 
-                if($_FILES['cv']['name'] != ""){
-                    $config['upload_path'] = 'file/cv';
-                    $config['allowed_types'] = 'pdf|docx|doc';
+                if($_FILES['tulisan']['name'] != ""){
+                    $config['upload_path'] = 'file/tulisan';
+                    $config['allowed_types'] = 'rtf|docx|doc|odt';
                     $config['max_size'] = '2000';
                     $config['remove_spaces'] = false;
-                    $config['overwrite'] = false;
+                    $config['overwrite'] = true;
                     $config['encrypt_name'] = false;
                     $config['max_width']  = '';
                     $config['max_height']  = '';
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
-                    if (!$this->upload->do_upload('cv'))
+                    if (!$this->upload->do_upload('tulisan'))
                     {
-                        print_r('Ukuran File Terlalu Besar. Maksimal 2Mb');
+                        print_r('Ukuran File Terlalu Besar. Maksimal 2 Mb');
                         exit();
                     }
                     else
@@ -749,7 +743,7 @@ class Login extends CI_Controller {
                         {
                             $data['file1'] = $image['file_name'];
                         }
-                        $cv = $data['file1'];
+                        $tulisan = $data['file1'];
                     }
                 }
 
@@ -758,12 +752,10 @@ class Login extends CI_Controller {
                     'nama' 		        => $nama,
                     'no_hape'			=> $no_hape,
                     'foto'				=> $foto,
-                    'cv'				=> $cv,
+                    'tulisan'			=> $tulisan,
                     'alamat'	        => $alamat,
-                    'nama_komunitas'    => $nama_komunitas,
-                    'alamat_komunitas'  => $alamat_komunitas,
                 );
-                $this->m_site->insertdata('data_dosen',$data);
+                $this->m_site->insertdata('kirim_tulisan',$data);
                 redirect('pages/news');
 
             }
@@ -771,15 +763,15 @@ class Login extends CI_Controller {
 
 
                 $this->db->where('id',$kode);
-                $query 	= $this->db->get('data_dosen');
+                $query 	= $this->db->get('kirim_tulisan');
                 $row	= $query->row();
 
-                unlink("./file/dosen/$row->foto");
+                unlink("./file/foto_tulisan/$row->foto");
 
                 // Foto Karyawan
                 if($_FILES['foto']['name'] != ""){
-                    $config['upload_path'] = 'file/dosen';
-                    $config['allowed_types'] = 'jpg|png|jpeg';
+                    $config['upload_path'] = 'file/foto_tulisan';
+                    $config['allowed_types'] = 'jpg|png|jpeg|gif';
                     $config['max_size'] = '2000';
                     $config['remove_spaces'] = false;
                     $config['overwrite'] = true;
@@ -790,7 +782,7 @@ class Login extends CI_Controller {
                     $this->upload->initialize($config);
                     if (!$this->upload->do_upload('foto'))
                     {
-                        print_r('Ukuran File Terlalu Besar. Maksimal 2Mb');
+                        print_r('Ukuran File Terlalu Besar. Maksimal 2 Mb');
                         exit();
                     }
                     else
@@ -805,16 +797,16 @@ class Login extends CI_Controller {
                 }
 
                 $this->db->where('id',$kode);
-                $query 	= $this->db->get('data_dosen');
+                $query 	= $this->db->get('kirim_tulisan');
                 $row	= $query->row();
 
-                unlink("./file/cv/$row->cv");
+                unlink("./file/tulisan/$row->tulisan");
 
                 // CV Karyawan
 
-                if($_FILES['cv']['name'] != ""){
-                    $config['upload_path'] = 'file/cv';
-                    $config['allowed_types'] = 'pdf|docx|doc';
+                if($_FILES['tulisan']['name'] != ""){
+                    $config['upload_path'] = 'file/tulisan';
+                    $config['allowed_types'] = 'rtf|docx|doc|odt';
                     $config['max_size'] = '2000';
                     $config['remove_spaces'] = false;
                     $config['overwrite'] = true;
@@ -823,9 +815,9 @@ class Login extends CI_Controller {
                     $config['max_height']  = '';
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
-                    if (!$this->upload->do_upload('cv'))
+                    if (!$this->upload->do_upload('tulisan'))
                     {
-                        print_r('Ukuran File Terlalu Besar. Maksimal 2Mb');
+                        print_r('Ukuran File Terlalu Besar. Maksimal 2 Mb');
                         exit();
                     }
                     else
@@ -835,7 +827,7 @@ class Login extends CI_Controller {
                         {
                             $data['file1'] = $image['file_name'];
                         }
-                        $cv = $data['file1'];
+                        $tulisan = $data['file1'];
                     }
                 }
 
@@ -843,13 +835,11 @@ class Login extends CI_Controller {
                     'nama' 		        => $nama,
                     'no_hape'			=> $no_hape,
                     'foto'				=> $foto,
-                    'cv'				=> $cv,
+                    'tulisan'			=> $tulisan,
                     'alamat'	        => $alamat,
-                    'nama_komunitas'    => $nama_komunitas,
-                    'alamat_komunitas'  => $alamat_komunitas,
                 );
 
-                $this->m_site->updatedata('data_dosen',$data,array('id' => $kode));
+                $this->m_site->updatedata('kirim_tulisan',$data,array('id' => $kode));
                 redirect('pages/news');
 
             }

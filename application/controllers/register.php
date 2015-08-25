@@ -3,20 +3,37 @@
 //nama class harus sama dengan nama file dan diawali dengan huruf besar
 class Register extends CI_Controller {
 
+    function __construct() {
+        parent::__construct();
+
+        $this->load->helper(array('url','html'));
+        $this->load->model('m_site');
+        $this->load->database();
+    }
+
     public function index()
     {
-
-        $this->load->helper('form');
 
         $data	= 	array(
             'title'			=> "Registrasi | IMM Setengah Abad",
             'description'	=> "Registrasi | IMM Setengah Abad",
         );
+
+        $data['provinsi']=$this->m_site->get_all_provinsi();
+
         $this->load->view('web/head', $data);
 		$this->load->view('web/v_register');
-        $this->load->view('web/footer');
     }
-	
+
+    function add_ajax_kab($id_prov){
+        $query = $this->db->get_where('wilayah_kabupaten',array('provinsi_id'=>$id_prov));
+        $data = "<option value=''>- Pilih Pimpinan Cabang -</option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='".$value->id."'>".$value->nama."</option>";
+        }
+        echo $data;
+    }
+
 	public function submit(){
 		//passing post data dari view
 		$this->load->helper(array('form', 'url'));
@@ -107,5 +124,14 @@ class Register extends CI_Controller {
 		echo "<div class='register'> <br><br><br><h4>Selamat Immawan/Immawati. Akun sudah aktif.</h4> </div>";
 		echo "<div class='register'><br><br>Kembali ke <a href='".site_url("login")."'>Beranda</a> untuk Log In.<br><br><br><br><br><br></div>";
 	}
+
+    function daftarorregister ()
+    {
+        $this->load->helper('url');
+
+            $this->load->view('web/head');
+            $this->load->view('web/daftarorregister');
+    }
+
 }
 

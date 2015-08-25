@@ -1,10 +1,26 @@
 <footer id="site-footer">
     <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>tentang">Tentang Kami</li>
+                    <li><a href="<?php echo base_url();?>tanfidz">Tanfidz Muktamar XVI IMM</li>
 
+                    <li><a href="<?php echo base_url();?>pusatunduhimm">Pusat Unduh IMM</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>pages/perkaderan">Perkaderan Nasional dan Regional</li>
+
+                    <li><a href="<?php echo base_url();?>kontak">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
     </div>
-
-
-
 </footer>
 
 <script src="<?php echo base_url();?>assets/web/js/classie.js"></script>

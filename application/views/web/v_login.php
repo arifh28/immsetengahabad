@@ -109,63 +109,43 @@
                              data-y="50"
                              data-speed="600"
                              data-start="1100"
-                             data-easing="easeOutExpo" data-end="3100" data-endspeed="600" data-endeasing="easeInSine" ><img src="<?php echo base_url();?>assets/web/images/macbook-bl.png" class="macbook-image" alt=""></div>
+                             data-easing="easeOutExpo" data-end="3100" data-endspeed="600" data-endeasing="easeInSine" ><img src="<?php echo base_url();?>assets/web/images/tanfidz_windows_home.png" class="macbook-image" alt=""></div>
 
                         <div class="caption sft stb"
                              data-x="720"
                              data-y="290"
                              data-speed="300"
                              data-start="1400"
-                             data-easing="easeOutExpo" data-end="3300" data-endspeed="300" data-endeasing="easeInSine" ><h2><span style="background-color: #c60000">Aplikasi Tanfidz</span></h2></div>
+                             data-easing="easeOutExpo" data-end="3300" data-endspeed="300" data-endeasing="easeInSine" ><h2><span>Aplikasi Tanfidz Windows</span></h2></div>
 
                         <div class="caption sfb stb"
                              data-x="720"
                              data-y="330"
                              data-speed="300"
                              data-start="1700"
-                             data-easing="easeOutExpo" data-end="3200" data-endspeed="300" data-endeasing="easeInSine" ><h3><span style="background-color: #c60000">Lihat</span></h3></div>
+                             data-easing="easeOutExpo" data-end="3200" data-endspeed="300" data-endeasing="easeInSine" ><a href="#tanfidz"><h3><span>Lihat</span></h3></a></div>
 
                         <div class="caption lft ltb"
                              data-x="600"
                              data-y="50"
                              data-speed="600"
                              data-start="3600"
-                             data-easing="easeOutExpo" data-end="5600" data-endspeed="600" data-endeasing="easeInSine" ><img src="<?php echo base_url();?>assets/web/images/macbook-bl.png" class="macbook-image" alt=""></div>
+                             data-easing="easeOutExpo" data-end="5600" data-endspeed="600" data-endeasing="easeInSine" ><img src="<?php echo base_url();?>assets/web/images/tanfidz_android_home.png" class="macbook-image" alt=""></div>
 
                         <div class="caption bold_brown_text sft stb"
                              data-x="720"
                              data-y="290"
                              data-speed="300"
                              data-start="3900"
-                             data-easing="easeOutExpo" data-end="5800" data-endspeed="300" data-endeasing="easeInSine" ><h2><span style="background-color: #c60000">COKE & RUM</span></h2></div>
+                             data-easing="easeOutExpo" data-end="5800" data-endspeed="300" data-endeasing="easeInSine" ><h2><span>Aplikasi Tanfidz Android</span></h2></div>
 
                         <div class="caption big_black sfb stb"
                              data-x="720"
                              data-y="330"
                              data-speed="300"
                              data-start="4200"
-                             data-easing="easeOutExpo" data-end="5700" data-endspeed="300" data-endeasing="easeInSine" ><h3><span style="background-color: #c60000">$ 5.99</span></h3></div>
+                             data-easing="easeOutExpo" data-end="5700" data-endspeed="300" data-endeasing="easeInSine" ><a href="#tanfidz"><h3><span>Lihat</span></h3></a></div>
 
-                        <div class="caption lft ltb"
-                             data-x="600"
-                             data-y="50"
-                             data-speed="600"
-                             data-start="6100"
-                             data-easing="easeOutExpo" data-end="8100" data-endspeed="300" data-endeasing="easeInSine" ><img src="<?php echo base_url();?>assets/web/images/macbook-bl.png" class="macbook-image" alt=""></div>
-
-                        <div class="caption bold_green_text sft stb"
-                             data-x="720"
-                             data-y="290"
-                             data-speed="300"
-                             data-start="6400"
-                             data-easing="easeOutExpo" data-end="8300" data-endspeed="300" data-endeasing="easeInSine" >MOJITO COCTAIL</div>
-
-                        <div class="caption big_black sfb stb"
-                             data-x="720"
-                             data-y="320"
-                             data-speed="300"
-                             data-start="6700"
-                             data-easing="easeOutExpo" data-end="8200" data-endspeed="300" data-endeasing="easeInSine" >$ 6.79</div>
                     </li>
                 </ul>
                 <div class="tp-bannertimer"></div>
@@ -333,21 +313,21 @@
 </section>
 
 <section id="tanfidz">
+    <div class="col-md-12">
+        <h1>Tanfidz Muktamar XVI IMM</h1>
+        <hr>
+    </div>
     <div class="container">
-        <div class="col-md-6">
-            <div class="windows scrollpoint sp-effect2">
-                <a title="Ukuran 4.1 MB" class="btn btn-medium btn-danger" href="https://goo.gl/vySvE7"> <i class="fa fa-download"></i> Download</a>
-
-                <p title="Untuk komputer &copy; Microsoft Windows">Untuk perangkat <i style="color: #094AB2" class="fa fa-windows fa-2x"></i></p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="android scrollpoint sp-effect1"><a title="Ukuran 4.1 MB" class="btn btn-medium btn-danger" href="https://goo.gl/vySvE7"> <i class="fa fa-download"></i> Download APK</a>
-
-                <p title="Untuk smartphone Android">Untuk perangkat <i style="color: #A4C639" class="fa fa-android fa-2x"></i></p></div>
+        <div class="col-md-12 scrollpoint sp-effect3">
+                <img src="<?php echo base_url();?>assets/web/images/tanfidzwindows.png"
         </div>
     </div>
-    <p>Percobaan</p>
+<div class="container scrollpoint sp-effect3">
+    <div class="col-md-12">
+<h4>Download sekarang juga! <a class="windowsapp" title="Ukuran 4.1 MB" href="<?php echo base_url();?>tanfidz"><i class="fa fa-windows fa-2x"> </i></a> <a class="androidapp" href="<?php echo base_url();?>tanfidz"> <i class="fa fa-android fa-2x"></i></a></h4>
+    </div>
+</div>
+
 </section>
 
 <section id="artikel">
@@ -423,10 +403,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
+<ul>
+    <li><a href="<?php echo base_url();?>tentang">Tentang Kami</li>
+    <li><a href="<?php echo base_url();?>tanfidz">Tanfidz Muktamar XVI IMM</li>
 
+    <li><a href="<?php echo base_url();?>pusatunduhimm">Pusat Unduh IMM</a></li>
+</ul>
             </div>
             <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>pages/perkaderan">Perkaderan Nasional dan Regional</li>
 
+                    <li><a href="<?php echo base_url();?>kontak">Hubungi Kami</a></li>
+                </ul>
             </div>
             <div class="col-md-4">
 

@@ -48,12 +48,21 @@ $route['perkaderan/(:any)/(:any)']		= 'home/viewperkaderan/$1/$2';
 $route['pages/perkaderan']			    = 'home/perkaderan';
 $route['pages/perkaderan/(:any)']	    = 'home/perkaderan';
 
+$route['tanfidz']	                    = 'home/tanfidz';
 $route['tanfidz/anggaran-dasar']	    = 'home/tanfidzangda';
 $route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
-$route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
-$route['tanfidz/anggaran-rumah-tangga'] = 'home/tanfidzangru';
+$route['tanfidz/gbho']                  = 'home/tanfidzgbho';
+$route['tanfidz/mekanisme-kerja-pimpinan'] = 'home/tanfidzmekanisme';
+$route['tanfidz/tatib-pemilihan-pimpinan'] = 'home/tanfidztatib';
 
+$route['pusatunduhimm'] = 'home/pusatunduhimm';
+$route['daftarorregister'] = 'register/daftarorregister';
 
+$route['kontak'] = 'login/kontak';
+$route['kontak/kirim'] = 'login/aksikontak';
+
+$route['kirim-tulisan']                 = 'login/kirim_tulisan';
+$route['kirim-tulisan/add']             = 'login/kirim_tulisansave';
 $route['search']						= 'login/cari';
 $route['lost']						    = 'login/data_kosong';
 $route['tentang']						= 'login/tentang';
@@ -83,6 +92,11 @@ $route['panel/pages/add']				= 'C_admin/pagesadd';
 $route['panel/pages/save']				= 'C_admin/pagessave';
 $route['panel/pages/edit/(:any)']		= 'C_admin/pagesedit/$1';
 $route['panel/pages/del/(:any)']		= 'C_admin/pagesdelete/$1';
+
+$route['panel/contact']					= 'C_admin/contact';
+$route['panel/contact/del/(:any)']		= 'C_admin/contactdelete/$1';
+$route['panel/contact/view/(:any)']		= 'C_admin/contactview/$1';
+$route['panel/contact/replay']			= 'C_admin/repMessage';
 
 $route['panel/artikel']					= 'C_admin/artikel';
 $route['panel/artikel/add']				= 'C_admin/artikeladd';

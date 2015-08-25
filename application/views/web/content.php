@@ -43,6 +43,7 @@
 
 </head>
 <body>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -87,13 +88,13 @@
 
                     <li><a href="<?php echo base_url();?>">HOME</a>
                     </li>
-                    <li class="active"><a href="#deklarasi">ARTIKEL</a>
+                    <li class="active"><a href="<?php echo base_url();?>pages/news">ARTIKEL</a>
                     </li>
-                    <li><a href="#tentang">TENTANG</a>
+                    <li><a href="<?php echo base_url();?>tentang">TENTANG</a>
                     </li>
-                    <li><a href="#imm">IMM</a>
+                    <li><a href="<?php echo base_url();?>perkaderan">INFO PERKADERAN</a>
                     </li>
-                    <li><a href="#tanfidz">TANFIDZ</a>
+                    <li><a href="<?php echo base_url();?>tanfidz">TANFIDZ</a>
                     </li>
                 </ul>
                 <!-- /.navbar-collapse -->
@@ -172,11 +173,24 @@
 <footer id="site-footer">
     <div class="container">
         <div class="row">
-            <span class="divider grey"></span>
-            <h4></h4>
-            <a href="#" class="scroll-top">
-                <img src="<?php echo base_url();?>assets/themes/web/img/top.png" alt="" class="top">
-            </a>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>tentang">Tentang Kami</li>
+                    <li><a href="<?php echo base_url();?>tanfidz">Tanfidz Muktamar XVI IMM</li>
+
+                    <li><a href="<?php echo base_url();?>pusatunduhimm">Pusat Unduh IMM</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="<?php echo base_url();?>pages/perkaderan">Perkaderan Nasional dan Regional</li>
+
+                    <li><a href="<?php echo base_url();?>kontak">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+            </div>
         </div>
     </div>
 </footer>

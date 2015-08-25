@@ -61,7 +61,7 @@ class Home extends CI_Controller {
             $this->load->view('web/v_home', $data);
 
         }else{
-            redirect('login');
+            redirect('daftarorregister');
         }
     }
 
@@ -117,8 +117,52 @@ class Home extends CI_Controller {
             $this->load->view('web/tanfidz/angda', $data);
 
         }else{
-            redirect('login');
+            redirect('daftarorregister');
         }
+    }
+
+    public function tanfidz ()
+    {
+
+        $this->load->helper('text');
+        $this->load->library('session');
+        $this->load->helper('url');
+
+        $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
+        $deskripsi 			= $this->m_site->getConfig('WHERE id_config = 3')->result_array();
+        $keyword 			= $this->m_site->getConfig('WHERE id_config = 4')->result_array();
+        $home 				= $this->m_site->getConfig('WHERE id_config = 2')->result_array();
+        $footer 			= $this->m_site->getConfig('WHERE id_config = 10')->result_array();
+        $footer2 			= $this->m_site->getConfig('WHERE id_config = 9')->result_array();
+        $slider_ar 			= $this->db->query('select * from artikel where category= "news" order by rand() limit 3')->result_array();
+        $perkaderan  		= $this->db->query('select * from perkaderan order by id desc limit 3')->result_array();
+        $berita_kampus 		= $this->db->query('select * from artikel where category= "kampus" order by id desc limit 3')->result_array();
+        $pengumuman 		= $this->db->query('select * from artikel where category= "pengumuman" order by id desc limit 3')->result_array();
+        $galeri 			= $this->db->query('select * from galery where kategori = 1 and status = 1 order by id desc limit 8')->result_array();
+        $download 			=  $this->db->query('select * from download order by id desc limit 4')->result_array();
+        $link_ex 			= $this->db->query('select * from link_external order by id desc limit 5')->result_array();
+        $menu_foot 			= $this->db->query('select * from menu where parent_id = 0 and view_type = 4  order by menu_id asc limit 5')->result_array();
+
+        $data	= 	array(
+            'title'			=> 'Tanfidz Muktamar XVI',
+            'description'	=> 'Download sekarang juga Tanfidz Muktamar XVI untuk Windows dan Android, atau baca online di web IMM Setengah Abad.',
+            'keyword'		=> strip_tags($keyword[0]['content']),
+            'footer'		=> strip_tags($footer[0]['content']),
+            'logo'			=> strip_tags($logoheader[0]['content']),
+            'perkaderan'	=> $perkaderan,
+            'berita_kampus'	=> $berita_kampus,
+            'pengumuman'	=> $pengumuman,
+            'galeri'		=> $galeri,
+            'download'		=> $download,
+            'link_ex'		=> $link_ex,
+            'menu_foot'		=> $menu_foot,
+            'menu'			=> $this->m_site->GetParentMenu(),
+            'uri1'			=> $this->uri->segment(2),
+            'uri2'			=> $this->uri->segment(3),
+        );
+
+
+        $this->load->view('web/tanfidz/home', $data);
     }
 
     public function tanfidzangru ()
@@ -173,7 +217,231 @@ class Home extends CI_Controller {
             $this->load->view('web/tanfidz/angru', $data);
 
         }else{
-            redirect('login');
+            redirect('daftarorregister');
+        }
+    }
+
+    public function tanfidzgbho ()
+    {
+
+        $this->load->helper('text');
+        $this->load->library('session');
+        $this->load->helper('url');
+
+        $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
+        $deskripsi 			= $this->m_site->getConfig('WHERE id_config = 3')->result_array();
+        $keyword 			= $this->m_site->getConfig('WHERE id_config = 4')->result_array();
+        $home 				= $this->m_site->getConfig('WHERE id_config = 2')->result_array();
+        $footer 			= $this->m_site->getConfig('WHERE id_config = 10')->result_array();
+        $footer2 			= $this->m_site->getConfig('WHERE id_config = 9')->result_array();
+        $slider_ar 			= $this->db->query('select * from artikel where category= "news" order by rand() limit 3')->result_array();
+        $perkaderan  		= $this->db->query('select * from perkaderan order by id desc limit 3')->result_array();
+        $berita_kampus 		= $this->db->query('select * from artikel where category= "kampus" order by id desc limit 3')->result_array();
+        $pengumuman 		= $this->db->query('select * from artikel where category= "pengumuman" order by id desc limit 3')->result_array();
+        $galeri 			= $this->db->query('select * from galery where kategori = 1 and status = 1 order by id desc limit 8')->result_array();
+        $download 			=  $this->db->query('select * from download order by id desc limit 4')->result_array();
+        $link_ex 			= $this->db->query('select * from link_external order by id desc limit 5')->result_array();
+        $menu_foot 			= $this->db->query('select * from menu where parent_id = 0 and view_type = 4  order by menu_id asc limit 5')->result_array();
+
+        $data	= 	array(
+            'title'			=> 'Garis Besar Haluan Organisasi | Tanfidz Muktamar XVI',
+            'description'	=> 'Garis Besar Haluan Organisasi | Tanfidz Muktamar XVI',
+            'keyword'		=> strip_tags($keyword[0]['content']),
+            'footer'		=> strip_tags($footer[0]['content']),
+            'logo'			=> strip_tags($logoheader[0]['content']),
+            'perkaderan'	=> $perkaderan,
+            'berita_kampus'	=> $berita_kampus,
+            'pengumuman'	=> $pengumuman,
+            'galeri'		=> $galeri,
+            'download'		=> $download,
+            'link_ex'		=> $link_ex,
+            'menu_foot'		=> $menu_foot,
+            'menu'			=> $this->m_site->GetParentMenu(),
+            'uri1'			=> $this->uri->segment(2),
+            'uri2'			=> $this->uri->segment(3),
+        );
+
+        if($this->session->userdata('login'))
+        {
+
+            //mengambil nama dari session
+            $session = $this->session->userdata('login');
+            $data['nama'] = $session['nama'];
+            $data['email'] = $session['email'];
+            $data['active'] = $session['active'];
+
+            $this->load->view('web/tanfidz/gbho', $data);
+
+        }else{
+            redirect('daftarorregister');
+        }
+    }
+
+    public function tanfidzmekanisme ()
+    {
+
+        $this->load->helper('text');
+        $this->load->library('session');
+        $this->load->helper('url');
+
+        $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
+        $deskripsi 			= $this->m_site->getConfig('WHERE id_config = 3')->result_array();
+        $keyword 			= $this->m_site->getConfig('WHERE id_config = 4')->result_array();
+        $home 				= $this->m_site->getConfig('WHERE id_config = 2')->result_array();
+        $footer 			= $this->m_site->getConfig('WHERE id_config = 10')->result_array();
+        $footer2 			= $this->m_site->getConfig('WHERE id_config = 9')->result_array();
+        $slider_ar 			= $this->db->query('select * from artikel where category= "news" order by rand() limit 3')->result_array();
+        $perkaderan  		= $this->db->query('select * from perkaderan order by id desc limit 3')->result_array();
+        $berita_kampus 		= $this->db->query('select * from artikel where category= "kampus" order by id desc limit 3')->result_array();
+        $pengumuman 		= $this->db->query('select * from artikel where category= "pengumuman" order by id desc limit 3')->result_array();
+        $galeri 			= $this->db->query('select * from galery where kategori = 1 and status = 1 order by id desc limit 8')->result_array();
+        $download 			=  $this->db->query('select * from download order by id desc limit 4')->result_array();
+        $link_ex 			= $this->db->query('select * from link_external order by id desc limit 5')->result_array();
+        $menu_foot 			= $this->db->query('select * from menu where parent_id = 0 and view_type = 4  order by menu_id asc limit 5')->result_array();
+
+        $data	= 	array(
+            'title'			=> 'Mekanisme Kerja Pimpinan | Tanfidz Muktamar XVI',
+            'description'	=> 'Mekanisme Kerja Pimpinan | Tanfidz Muktamar XVI',
+            'keyword'		=> strip_tags($keyword[0]['content']),
+            'footer'		=> strip_tags($footer[0]['content']),
+            'logo'			=> strip_tags($logoheader[0]['content']),
+            'perkaderan'	=> $perkaderan,
+            'berita_kampus'	=> $berita_kampus,
+            'pengumuman'	=> $pengumuman,
+            'galeri'		=> $galeri,
+            'download'		=> $download,
+            'link_ex'		=> $link_ex,
+            'menu_foot'		=> $menu_foot,
+            'menu'			=> $this->m_site->GetParentMenu(),
+            'uri1'			=> $this->uri->segment(2),
+            'uri2'			=> $this->uri->segment(3),
+        );
+
+        if($this->session->userdata('login'))
+        {
+
+            //mengambil nama dari session
+            $session = $this->session->userdata('login');
+            $data['nama'] = $session['nama'];
+            $data['email'] = $session['email'];
+            $data['active'] = $session['active'];
+
+            $this->load->view('web/tanfidz/mekanisme', $data);
+
+        }else{
+            redirect('daftarorregister');
+        }
+    }
+
+    public function tanfidztatib ()
+    {
+
+        $this->load->helper('text');
+        $this->load->library('session');
+        $this->load->helper('url');
+
+        $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
+        $deskripsi 			= $this->m_site->getConfig('WHERE id_config = 3')->result_array();
+        $keyword 			= $this->m_site->getConfig('WHERE id_config = 4')->result_array();
+        $home 				= $this->m_site->getConfig('WHERE id_config = 2')->result_array();
+        $footer 			= $this->m_site->getConfig('WHERE id_config = 10')->result_array();
+        $footer2 			= $this->m_site->getConfig('WHERE id_config = 9')->result_array();
+        $slider_ar 			= $this->db->query('select * from artikel where category= "news" order by rand() limit 3')->result_array();
+        $perkaderan  		= $this->db->query('select * from perkaderan order by id desc limit 3')->result_array();
+        $berita_kampus 		= $this->db->query('select * from artikel where category= "kampus" order by id desc limit 3')->result_array();
+        $pengumuman 		= $this->db->query('select * from artikel where category= "pengumuman" order by id desc limit 3')->result_array();
+        $galeri 			= $this->db->query('select * from galery where kategori = 1 and status = 1 order by id desc limit 8')->result_array();
+        $download 			=  $this->db->query('select * from download order by id desc limit 4')->result_array();
+        $link_ex 			= $this->db->query('select * from link_external order by id desc limit 5')->result_array();
+        $menu_foot 			= $this->db->query('select * from menu where parent_id = 0 and view_type = 4  order by menu_id asc limit 5')->result_array();
+
+        $data	= 	array(
+            'title'			=> 'Tatib Pemilihan Pimpinan | Tanfidz Muktamar XVI',
+            'description'	=> 'Tatib Pemilihan Pimpinan | Tanfidz Muktamar XVI',
+            'keyword'		=> strip_tags($keyword[0]['content']),
+            'footer'		=> strip_tags($footer[0]['content']),
+            'logo'			=> strip_tags($logoheader[0]['content']),
+            'perkaderan'	=> $perkaderan,
+            'berita_kampus'	=> $berita_kampus,
+            'pengumuman'	=> $pengumuman,
+            'galeri'		=> $galeri,
+            'download'		=> $download,
+            'link_ex'		=> $link_ex,
+            'menu_foot'		=> $menu_foot,
+            'menu'			=> $this->m_site->GetParentMenu(),
+            'uri1'			=> $this->uri->segment(2),
+            'uri2'			=> $this->uri->segment(3),
+        );
+
+        if($this->session->userdata('login'))
+        {
+
+            //mengambil nama dari session
+            $session = $this->session->userdata('login');
+            $data['nama'] = $session['nama'];
+            $data['email'] = $session['email'];
+            $data['active'] = $session['active'];
+
+            $this->load->view('web/tanfidz/tatib', $data);
+
+        }else{
+            redirect('daftarorregister');
+        }
+    }
+
+    public function pusatunduhimm ()
+    {
+
+        $this->load->helper('text');
+        $this->load->library('session');
+        $this->load->helper('url');
+
+        $logoheader			= $this->m_site->getConfig('WHERE id_config = 1')->result_array();
+        $deskripsi 			= $this->m_site->getConfig('WHERE id_config = 3')->result_array();
+        $keyword 			= $this->m_site->getConfig('WHERE id_config = 4')->result_array();
+        $home 				= $this->m_site->getConfig('WHERE id_config = 2')->result_array();
+        $footer 			= $this->m_site->getConfig('WHERE id_config = 10')->result_array();
+        $footer2 			= $this->m_site->getConfig('WHERE id_config = 9')->result_array();
+        $slider_ar 			= $this->db->query('select * from artikel where category= "news" order by rand() limit 3')->result_array();
+        $perkaderan  		= $this->db->query('select * from perkaderan order by id desc limit 3')->result_array();
+        $berita_kampus 		= $this->db->query('select * from artikel where category= "kampus" order by id desc limit 3')->result_array();
+        $pengumuman 		= $this->db->query('select * from artikel where category= "pengumuman" order by id desc limit 3')->result_array();
+        $galeri 			= $this->db->query('select * from galery where kategori = 1 and status = 1 order by id desc limit 8')->result_array();
+        $download 			=  $this->db->query('select * from download order by id desc limit 4')->result_array();
+        $link_ex 			= $this->db->query('select * from link_external order by id desc limit 5')->result_array();
+        $menu_foot 			= $this->db->query('select * from menu where parent_id = 0 and view_type = 4  order by menu_id asc limit 5')->result_array();
+
+        $data	= 	array(
+            'title'			=> 'Tatib Pemilihan Pimpinan | Tanfidz Muktamar XVI',
+            'description'	=> 'Tatib Pemilihan Pimpinan | Tanfidz Muktamar XVI',
+            'keyword'		=> strip_tags($keyword[0]['content']),
+            'footer'		=> strip_tags($footer[0]['content']),
+            'logo'			=> strip_tags($logoheader[0]['content']),
+            'perkaderan'	=> $perkaderan,
+            'berita_kampus'	=> $berita_kampus,
+            'pengumuman'	=> $pengumuman,
+            'galeri'		=> $galeri,
+            'download'		=> $download,
+            'link_ex'		=> $link_ex,
+            'menu_foot'		=> $menu_foot,
+            'menu'			=> $this->m_site->GetParentMenu(),
+            'uri1'			=> $this->uri->segment(2),
+            'uri2'			=> $this->uri->segment(3),
+        );
+
+        if($this->session->userdata('login'))
+        {
+
+            //mengambil nama dari session
+            $session = $this->session->userdata('login');
+            $data['nama'] = $session['nama'];
+            $data['email'] = $session['email'];
+            $data['active'] = $session['active'];
+
+            $this->load->view('web/pusatunduhimm', $data);
+
+        }else{
+            redirect('daftarorregister');
         }
     }
 
@@ -256,7 +524,7 @@ class Home extends CI_Controller {
             $this->load->view('web/footer');
 
         }else{
-            redirect('login');
+            redirect('daftarorregister');
         }
 
     }
@@ -318,7 +586,7 @@ class Home extends CI_Controller {
             $this->load->view('web/footer');
 
         }else{
-            redirect('login');
+            redirect('daftarorregister');
         }
     }
 
